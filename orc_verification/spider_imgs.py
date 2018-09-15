@@ -1,8 +1,11 @@
 #!/usr/share/app/anaconda3/bin/python3
-# encoding: utf-8  
+# encoding: utf-8
+import time
+
 import requests
 import user_agent
 from utils.tools import primary_md5
+
 from setting import project_path
 
 """ 
@@ -43,7 +46,9 @@ class SpiderImg(object):
             with open(file_path, 'wb') as f:
                 f.write(resp.content)
 
+            time.sleep(2)
+
 
 if __name__ == '__main__':
-    s = SpiderImg(img_nums=1)
+    s = SpiderImg(img_nums=100)
     s.start_spider()
